@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+const Button = ({handleClick, text}) =>
+<button onClick = {handleClick}>{text}</button>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const [points,setPoints] = useState(0)
+  const [multiplier,setMultiplier] = useState(0)
+  
+  const increaseByOne = () => setPoints(points + (1.0)*multiplier)
+  const uprgadeOne = () => setMultiplier(multiplier + 1.00002000), setPoints(points - 1)
+
+  return(
+    <div>
+      <h1>{points} {multiplier}</h1>
+      <Button handleClick={increaseByOne} text={'Click me!'}/>
+      <Button handleClick={uprgadeOne} text ={'First uprgade!'}/>
     </div>
-  );
+    
+  )
 }
 
-export default App;
+export default App
